@@ -26,6 +26,7 @@ namespace EasySymbolLink
 			if (FBD_Source.ShowDialog() == DialogResult.OK)
 			{
 				TB_Source.Text = FBD_Source.SelectedPath;
+				TB_LinkName.Text = (new Uri(FBD_Source.SelectedPath)).Segments.Last();
 			}
 		}
 
@@ -39,8 +40,6 @@ namespace EasySymbolLink
 
 		private void B_Make_Click(object sender, EventArgs e)
 		{
-			Uri srcURI = null;
-			Uri destURI = null;
 			String name = TB_LinkName.Text;
 
 			bool existSrc = false;
@@ -52,25 +51,41 @@ namespace EasySymbolLink
 
 			try
 			{
-				srcURI = new Uri(TB_Source.Text);
-				srcPath = "\"" + srcURI.AbsolutePath + "\"";
-				existSrc = Directory.Exists(srcURI.AbsolutePath);
+				srcPath = "\"" + TB_Source.Text + "\"";
+				existSrc = Directory.Exists(TB_Source.Text);
 			}
 			catch
 			{
 			}
 			try
 			{
-				destURI = new Uri(TB_Dest.Text);
-				destPath = "\"" + destURI.AbsolutePath + "/" + name + "\"";
-				existDest = Directory.Exists(destURI.AbsolutePath);
+				if (TB_Dest.Text.Last() == '\\')
+				{
+					destPath = "\"" + TB_Dest.Text + name + "\"";
+				}
+				else
+				{
+					destPath = "\"" + TB_Dest.Text + "/" + name + "\"";
+
+				}
+				existDest = Directory.Exists(TB_Dest.Text);
 			}
 			catch
 			{
 			}
 			try
 			{
-				existLink = Directory.Exists(destURI.AbsolutePath + "/" + name);
+				String p = "";
+				if (TB_Dest.Text.Last() == '\\')
+				{
+					p = TB_Dest.Text + name;
+				}
+				else
+				{
+					p = TB_Dest.Text + "/" + name;
+
+				}
+				existLink = Directory.Exists(p);
 			}
 			catch
 			{
