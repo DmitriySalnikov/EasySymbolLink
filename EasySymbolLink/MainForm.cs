@@ -201,8 +201,16 @@ namespace EasySymbolLink
 			if (allow_drop)
 			{
 				string path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
-				bool is_file = File.Exists(path);
 
+				if (Path.GetExtension(path) == ".lnk")
+				{
+					string lnk_path = LNKResolver.ResolveShortcut(path);
+
+					if (lnk_path != "")
+						path = lnk_path;
+				}
+
+				bool is_file = File.Exists(path);
 				set_source_path(path, is_file);
 			}
 		}

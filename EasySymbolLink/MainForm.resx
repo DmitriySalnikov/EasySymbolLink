@@ -137,6 +137,9 @@
   <data name="&gt;&gt;btn_browse_source_folder.Name" xml:space="preserve">
     <value>btn_browse_source_folder</value>
   </data>
+  <data name="btn_browse_dest.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
     <value>86, 13</value>
   </data>
@@ -146,17 +149,20 @@
   <data name="btn_browse_source_folder.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
-    <value>105, 168</value>
-  </data>
   <data name="l_dest_path.Location" type="System.Drawing.Point, System.Drawing">
     <value>129, 126</value>
+  </data>
+  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 81</value>
   </data>
   <data name="&gt;&gt;OFD_Source.Name" xml:space="preserve">
     <value>OFD_Source</value>
   </data>
   <data name="btn_browse_dest.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
+  </data>
+  <data name="tb_link_name.Size" type="System.Drawing.Size, System.Drawing">
+    <value>244, 20</value>
   </data>
   <data name="&gt;&gt;label1.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -183,9 +189,6 @@
   <data name="&gt;&gt;label3.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="l_source_path.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleCenter</value>
-  </data>
   <data name="&gt;&gt;SFD_Dest.Name" xml:space="preserve">
     <value>SFD_Dest</value>
   </data>
@@ -195,14 +198,14 @@
   <data name="&gt;&gt;btn_browse_dest.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="tableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
   <data name="tableLayoutPanel2.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="btn_browse_source_file" Row="0" RowSpan="1" Column="1" ColumnSpan="1" /&gt;&lt;Control Name="btn_browse_source_folder" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,50,Percent,50" /&gt;&lt;Rows Styles="Percent,50" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
   <data name="btn_browse_source_folder.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="&gt;&gt;l_dest_path.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>Easy Symbol Link</value>
@@ -246,17 +249,14 @@
   <data name="btn_browse_dest.Location" type="System.Drawing.Point, System.Drawing">
     <value>117, 142</value>
   </data>
-  <data name="btn_browse_dest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>6, 13</value>
   </data>
   <data name="&gt;&gt;FBD_Dest.Name" xml:space="preserve">
     <value>FBD_Dest</value>
   </data>
   <data name="btn_browse_source_file.ToolTip" xml:space="preserve">
     <value />
-  </data>
-  <data name="&gt;&gt;FBD_Dest.Type" xml:space="preserve">
-    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -285,8 +285,8 @@
   <data name="btn_browse_source_file.Text" xml:space="preserve">
     <value>Select File</value>
   </data>
-  <data name="&gt;&gt;l_dest_path.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="tableLayoutPanel2.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="&gt;&gt;label2.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -305,6 +305,9 @@
   </data>
   <data name="btn_browse_source_file.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
+  </data>
+  <data name="tableLayoutPanel1.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="tb_link_name.TabIndex" type="System.Int32, mscorlib">
     <value>17</value>
@@ -333,9 +336,6 @@
   <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
     <value>36, 39</value>
   </data>
-  <data name="tableLayoutPanel2.ToolTip" xml:space="preserve">
-    <value />
-  </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
     <value>MainForm</value>
   </data>
@@ -360,17 +360,14 @@
   <data name="&gt;&gt;l_source_path.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="l_dest_path.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
+  <data name="tableLayoutPanel1.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="$this.MinimumSize" type="System.Drawing.Size, System.Drawing">
     <value>312, 262</value>
   </data>
   <data name="l_source_path.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
-  </data>
-  <data name="btn_browse_source_folder.ToolTip" xml:space="preserve">
-    <value />
   </data>
   <data name="&gt;&gt;btn_browse_dest.Name" xml:space="preserve">
     <value>btn_browse_dest</value>
@@ -408,11 +405,11 @@
   <data name="&gt;&gt;label2.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>1</value>
+  <data name="btn_make.Size" type="System.Drawing.Size, System.Drawing">
+    <value>202, 31</value>
   </data>
-  <data name="tableLayoutPanel1.AutoScroll" type="System.Boolean, mscorlib">
-    <value>True</value>
+  <data name="&gt;&gt;FBD_Dest.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FolderBrowserDialog, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;tableLayoutPanel2.ZOrder" xml:space="preserve">
     <value>8</value>
@@ -420,11 +417,8 @@
   <data name="&gt;&gt;btn_browse_source_folder.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="tableLayoutPanel1.ToolTip" xml:space="preserve">
-    <value />
-  </data>
-  <data name="tb_link_name.Size" type="System.Drawing.Size, System.Drawing">
-    <value>244, 20</value>
+  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
+    <value>1</value>
   </data>
   <data name="tb_link_name.ToolTip" xml:space="preserve">
     <value />
@@ -435,8 +429,8 @@
   <data name="&gt;&gt;tb_link_name.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="l_dest_path.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom</value>
+  <data name="btn_browse_source_folder.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="btn_browse_source_file.TabIndex" type="System.Int32, mscorlib">
     <value>20</value>
@@ -450,8 +444,8 @@
   <data name="label2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom</value>
   </data>
-  <data name="btn_browse_source_folder.Location" type="System.Drawing.Point, System.Drawing">
-    <value>63, 3</value>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>105, 168</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>13</value>
@@ -474,17 +468,17 @@
   <data name="tb_link_name.Location" type="System.Drawing.Point, System.Drawing">
     <value>26, 184</value>
   </data>
-  <data name="&gt;&gt;l_source_path.ZOrder" xml:space="preserve">
-    <value>6</value>
+  <data name="l_source_path.Text" xml:space="preserve">
+    <value>(none)</value>
   </data>
-  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
+  <data name="&gt;&gt;label2.Name" xml:space="preserve">
+    <value>label2</value>
   </data>
   <data name="label3.ToolTip" xml:space="preserve">
     <value />
   </data>
-  <data name="l_source_path.Text" xml:space="preserve">
-    <value>(none)</value>
+  <data name="tableLayoutPanel2.ToolTip" xml:space="preserve">
+    <value />
   </data>
   <data name="&gt;&gt;label1.Parent" xml:space="preserve">
     <value>tableLayoutPanel1</value>
@@ -522,8 +516,8 @@
   <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 26</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>6, 13</value>
+  <data name="&gt;&gt;btn_browse_source_file.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="tableLayoutPanel2.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom, Left, Right</value>
@@ -538,8 +532,8 @@ or move them to this window</value>
   <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
     <value>tableLayoutPanel1</value>
   </data>
-  <data name="tableLayoutPanel1.ColumnCount" type="System.Int32, mscorlib">
-    <value>1</value>
+  <data name="l_dest_path.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
   </data>
   <data name="btn_browse_dest.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
     <value>Top, Bottom</value>
@@ -547,20 +541,20 @@ or move them to this window</value>
   <data name="btn_browse_source_file.AutoSizeMode" type="System.Windows.Forms.AutoSizeMode, System.Windows.Forms">
     <value>GrowAndShrink</value>
   </data>
-  <data name="btn_make.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
-    <value>Top, Bottom</value>
+  <data name="l_source_path.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleCenter</value>
   </data>
   <data name="&gt;&gt;label3.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>97, 113</value>
+  </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
+  <data name="btn_browse_source_folder.Location" type="System.Drawing.Point, System.Drawing">
+    <value>63, 3</value>
   </data>
   <data name="btn_make.ToolTip" xml:space="preserve">
     <value />
@@ -568,8 +562,8 @@ or move them to this window</value>
   <data name="l_dest_path.Size" type="System.Drawing.Size, System.Drawing">
     <value>37, 13</value>
   </data>
-  <data name="label2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>97, 113</value>
+  <data name="btn_browse_dest.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="l_dest_path.Text" xml:space="preserve">
     <value>(none)</value>
@@ -592,11 +586,11 @@ or move them to this window</value>
   <data name="tableLayoutPanel1.RowCount" type="System.Int32, mscorlib">
     <value>11</value>
   </data>
-  <data name="btn_make.Size" type="System.Drawing.Size, System.Drawing">
-    <value>202, 31</value>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>1</value>
   </data>
-  <data name="&gt;&gt;btn_browse_source_file.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;l_source_path.ZOrder" xml:space="preserve">
+    <value>6</value>
   </data>
   <data name="tableLayoutPanel2.Size" type="System.Drawing.Size, System.Drawing">
     <value>290, 29</value>
@@ -604,11 +598,17 @@ or move them to this window</value>
   <data name="&gt;&gt;btn_make.Name" xml:space="preserve">
     <value>btn_make</value>
   </data>
-  <data name="tableLayoutPanel2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>3, 81</value>
+  <data name="label2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
   </data>
   <data name="label3.TextAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleCenter</value>
+  </data>
+  <data name="l_dest_path.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Bottom</value>
   </data>
   <data name="btn_make.Location" type="System.Drawing.Point, System.Drawing">
     <value>47, 210</value>
@@ -625,14 +625,11 @@ or move them to this window</value>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="btn_browse_dest.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
+  <data name="btn_make.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <metadata name="SFD_Dest.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>345, 21</value>
-  </metadata>
-  <metadata name="$this.Language" type="System.Globalization.CultureInfo, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>ru</value>
   </metadata>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
