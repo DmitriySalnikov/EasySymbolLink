@@ -14,33 +14,80 @@ namespace EasySymbolLink
 {
 	public partial class MainForm : Form
 	{
+		const string none_string = "(none)";
+		string source_path = "";
+		string dest_path = "";
+		bool allow_drop = false;
+		bool is_file_link = true;
+
 		public MainForm()
 		{
 			InitializeComponent();
 
+			Icon = Properties.Resources.SmallIcon;
 
+			l_source_path.Text = none_string;
+			l_dest_path.Text = none_string;
+
+			btn_browse_dest.Enabled = false;
 		}
 
-		private void B_Browse_Source_Click(object sender, EventArgs e)
+		private void set_source_path(string path, bool is_file)
+		{
+			is_file_link = is_file;
+			source_path = l_source_path.Text = path;
+			btn_browse_dest.Enabled = true;
+
+			if (is_file)
+			{
+				tb_link_name.Text = Path.GetFileName(source_path);
+			}
+			else
+			{
+				tb_link_name.Text = source_path.Split(Path.DirectorySeparatorChar).Last();
+
+				if (tb_link_name.Text == "" && source_path == Path.GetPathRoot(source_path))
+				{
+					tb_link_name.Text = source_path.Replace(":" + Path.DirectorySeparatorChar, "");
+				}
+			}
+		}
+
+		private void l_dest_path_Click(object sender, EventArgs e)
+		{
+			l_dest_path.Text = none_string;
+			dest_path = "";
+		}
+
+		private void btn_browse_source_folder_Click(object sender, EventArgs e)
 		{
 			if (FBD_Source.ShowDialog() == DialogResult.OK)
 			{
-				TB_Source.Text = FBD_Source.SelectedPath;
-				TB_LinkName.Text = (new Uri(FBD_Source.SelectedPath)).Segments.Last();
+				set_source_path(FBD_Source.SelectedPath, false);
 			}
 		}
 
-		private void B_Browse_Dest_Click(object sender, EventArgs e)
+		private void btn_browse_source_file_Click(object sender, EventArgs e)
 		{
+			if (OFD_Source.ShowDialog() == DialogResult.OK)
+			{
+				set_source_path(OFD_Source.FileName, true);
+			}
+		}
+
+		private void btn_browse_dest_Click(object sender, EventArgs e)
+		{
+			FBD_Dest.SelectedPath = dest_path == "" ? (is_file_link ? Path.GetDirectoryName(source_path) : source_path) : dest_path;
+
 			if (FBD_Dest.ShowDialog() == DialogResult.OK)
 			{
-				TB_Dest.Text = FBD_Dest.SelectedPath;
+				dest_path = l_dest_path.Text = FBD_Dest.SelectedPath;
 			}
 		}
 
-		private void B_Make_Click(object sender, EventArgs e)
+		private void btn_make_Click(object sender, EventArgs e)
 		{
-			String name = TB_LinkName.Text;
+			String name = tb_link_name.Text;
 
 			bool existSrc = false;
 			bool existDest = false;
@@ -51,47 +98,65 @@ namespace EasySymbolLink
 
 			try
 			{
-				srcPath = "\"" + TB_Source.Text + "\"";
-				existSrc = Directory.Exists(TB_Source.Text);
-			}
-			catch
-			{
-			}
-			try
-			{
-				if (TB_Dest.Text.Last() == '\\')
+				srcPath = "\"" + source_path + "\"";
+
+				if (is_file_link)
 				{
-					destPath = "\"" + TB_Dest.Text + name + "\"";
+					existSrc = File.Exists(source_path);
 				}
 				else
 				{
-					destPath = "\"" + TB_Dest.Text + "/" + name + "\"";
-
+					existSrc = Directory.Exists(source_path);
 				}
-				existDest = Directory.Exists(TB_Dest.Text);
 			}
 			catch
 			{
 			}
+
+			try
+			{
+				if (dest_path.Last() == '\\')
+				{
+					destPath = "\"" + dest_path + name + "\"";
+				}
+				else
+				{
+					destPath = "\"" + dest_path + "/" + name + "\"";
+				}
+
+				existDest = Directory.Exists(dest_path);
+			}
+			catch
+			{
+			}
+
 			try
 			{
 				String p = "";
-				if (TB_Dest.Text.Last() == '\\')
+				if (dest_path.Last() == '\\')
 				{
-					p = TB_Dest.Text + name;
+					p = dest_path + name;
 				}
 				else
 				{
-					p = TB_Dest.Text + "/" + name;
+					p = dest_path + "/" + name;
 
 				}
-				existLink = Directory.Exists(p);
+
+				if (is_file_link)
+				{
+					existLink = File.Exists(p);
+				}
+				else
+				{
+					existLink = Directory.Exists(p);
+				}
 			}
 			catch
 			{
 			}
 
-			String res = "/c mklink /j " + destPath + " " + srcPath;
+			String res = "/c mklink " + (is_file_link ? "" : "/j ") + destPath + " " + srcPath;
 			bool isError = false;
 
 			if (existSrc && existDest && !existLink && name != "")
@@ -127,6 +192,36 @@ namespace EasySymbolLink
 		}
 
 		private void MainForm_Load(object sender, EventArgs e)
+		{
+
+		}
+
+		private void MainForm_DragDrop(object sender, DragEventArgs e)
+		{
+			if (allow_drop)
+			{
+				string path = ((string[])e.Data.GetData(DataFormats.FileDrop))[0];
+				bool is_file = File.Exists(path);
+
+				set_source_path(path, is_file);
+			}
+		}
+
+		private void MainForm_DragEnter(object sender, DragEventArgs e)
+		{
+			if (e.Data.GetDataPresent(DataFormats.FileDrop, false) && ((string[])e.Data.GetData(DataFormats.FileDrop)).Length == 1)
+			{
+				allow_drop = true;
+				e.Effect = DragDropEffects.Link;
+			}
+			else
+			{
+				allow_drop = false;
+				e.Effect = DragDropEffects.None;
+			}
+		}
+
+		private void MainForm_DragLeave(object sender, EventArgs e)
 		{
 
 		}

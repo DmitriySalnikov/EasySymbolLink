@@ -88,5 +88,8 @@
   <ItemGroup>
     <None Include="Icon.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="SmallIcon.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
