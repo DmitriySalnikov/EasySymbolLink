@@ -170,22 +170,22 @@ namespace EasySymbolLink
 
 			if (isError)
 			{
-				String error = "Please fix the following errors:\n";
+				String error = Properties.Strings.pls_fix + "\n";
 				if (!existSrc)
 				{
-					error += "\nSource Path does not exist!";
+					error += "\n" + Properties.Strings.src_not_exists;
 				}
 				if (!existDest)
 				{
-					error += "\nDestination path does not exist!";
+					error += "\n" + Properties.Strings.out_not_exists;
 				}
 				if (name == "")
 				{
-					error += "\nName not specified!";
+					error += "\n" + Properties.Strings.lnk_noname;
 				}
 				if (existLink)
 				{
-					error += "\nLink already exist!";
+					error += "\n" + Properties.Strings.lnk_already_exists;
 				}
 				MessageBox.Show(error);
 			}
