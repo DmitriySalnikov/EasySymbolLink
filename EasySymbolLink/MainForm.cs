@@ -6,9 +6,11 @@ using System.Drawing;
 using System.Linq;
 using System.IO;
 using System.Text;
+using System.Globalization;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Security.AccessControl;
 
 namespace EasySymbolLink
 {
@@ -30,6 +32,32 @@ namespace EasySymbolLink
 			l_dest_path.Text = none_string;
 
 			btn_browse_dest.Enabled = false;
+			btn_make.Enabled = false;
+			SetErrorText("");
+		}
+
+		private void SetErrorText(string txt)
+		{
+			l_error.Text = txt;
+		}
+
+		public bool HasWriteAccessToFolder(string path)
+		{
+			try
+			{
+				const string txt = "AbsolutlyRandomTextForNewFileASdhAJKFGAIOUDASRYQEIO.657gh";
+				string p = Path.Combine(path, txt);
+				var f = File.OpenWrite(p);
+				f.Close();
+				File.Delete(p);
+				SetErrorText("");
+				return true;
+			}
+			catch (UnauthorizedAccessException)
+			{
+				SetErrorText(Properties.Strings.error_cant_write);
+				return false;
+			}
 		}
 
 		private void set_source_path(string path, bool is_file)
@@ -56,6 +84,7 @@ namespace EasySymbolLink
 		private void l_dest_path_Click(object sender, EventArgs e)
 		{
 			l_dest_path.Text = none_string;
+			btn_make.Enabled = false;
 			dest_path = "";
 		}
 
@@ -82,6 +111,7 @@ namespace EasySymbolLink
 			if (FBD_Dest.ShowDialog() == DialogResult.OK)
 			{
 				dest_path = l_dest_path.Text = FBD_Dest.SelectedPath;
+				btn_make.Enabled = HasWriteAccessToFolder(dest_path);
 			}
 		}
 
@@ -156,12 +186,24 @@ namespace EasySymbolLink
 			{
 			}
 
-			String res = "/c mklink " + (is_file_link ? "" : "/j ") + destPath + " " + srcPath;
+			String res = $"/c mklink {(is_file_link ? "" : "/j ")} {destPath} {srcPath}";
 			bool isError = false;
 
 			if (existSrc && existDest && !existLink && name != "")
 			{
-				Process.Start("cmd.exe", res);
+				var psi = new ProcessStartInfo()
+				{
+					FileName = "cmd.exe",
+					Arguments = res,
+					RedirectStandardOutput = true,
+					UseShellExecute = false,
+					CreateNoWindow = true,
+				};
+
+				var proc = Process.Start(psi);
+				proc.WaitForExit();
+				Console.WriteLine(psi.FileName + " " + res);
+				Console.WriteLine(proc.StandardOutput.ReadToEnd());
 			}
 			else
 			{

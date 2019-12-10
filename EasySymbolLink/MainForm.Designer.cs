@@ -47,17 +47,10 @@
 			this.OFD_Source = new System.Windows.Forms.OpenFileDialog();
 			this.SFD_Dest = new System.Windows.Forms.SaveFileDialog();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.l_error = new System.Windows.Forms.Label();
 			this.tableLayoutPanel1.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.SuspendLayout();
-			// 
-			// FBD_Source
-			// 
-			resources.ApplyResources(this.FBD_Source, "FBD_Source");
-			// 
-			// FBD_Dest
-			// 
-			resources.ApplyResources(this.FBD_Dest, "FBD_Dest");
 			// 
 			// btn_browse_dest
 			// 
@@ -71,7 +64,6 @@
 			// 
 			resources.ApplyResources(this.btn_browse_source_file, "btn_browse_source_file");
 			this.btn_browse_source_file.Name = "btn_browse_source_file";
-			this.toolTip1.SetToolTip(this.btn_browse_source_file, resources.GetString("btn_browse_source_file.ToolTip"));
 			this.btn_browse_source_file.UseVisualStyleBackColor = true;
 			this.btn_browse_source_file.Click += new System.EventHandler(this.btn_browse_source_file_Click);
 			// 
@@ -79,7 +71,6 @@
 			// 
 			resources.ApplyResources(this.btn_browse_source_folder, "btn_browse_source_folder");
 			this.btn_browse_source_folder.Name = "btn_browse_source_folder";
-			this.toolTip1.SetToolTip(this.btn_browse_source_folder, resources.GetString("btn_browse_source_folder.ToolTip"));
 			this.btn_browse_source_folder.UseVisualStyleBackColor = true;
 			this.btn_browse_source_folder.Click += new System.EventHandler(this.btn_browse_source_folder_Click);
 			// 
@@ -95,26 +86,23 @@
 			this.tableLayoutPanel1.Controls.Add(this.l_source_path, 0, 2);
 			this.tableLayoutPanel1.Controls.Add(this.l_dest_path, 0, 5);
 			this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 3);
+			this.tableLayoutPanel1.Controls.Add(this.l_error, 0, 10);
 			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.toolTip1.SetToolTip(this.tableLayoutPanel1, resources.GetString("tableLayoutPanel1.ToolTip"));
 			// 
 			// tb_link_name
 			// 
 			resources.ApplyResources(this.tb_link_name, "tb_link_name");
 			this.tb_link_name.Name = "tb_link_name";
-			this.toolTip1.SetToolTip(this.tb_link_name, resources.GetString("tb_link_name.ToolTip"));
 			// 
 			// label3
 			// 
 			resources.ApplyResources(this.label3, "label3");
 			this.label3.Name = "label3";
-			this.toolTip1.SetToolTip(this.label3, resources.GetString("label3.ToolTip"));
 			// 
 			// btn_make
 			// 
 			resources.ApplyResources(this.btn_make, "btn_make");
 			this.btn_make.Name = "btn_make";
-			this.toolTip1.SetToolTip(this.btn_make, resources.GetString("btn_make.ToolTip"));
 			this.btn_make.UseVisualStyleBackColor = true;
 			this.btn_make.Click += new System.EventHandler(this.btn_make_Click);
 			// 
@@ -122,27 +110,23 @@
 			// 
 			resources.ApplyResources(this.label2, "label2");
 			this.label2.Name = "label2";
-			this.toolTip1.SetToolTip(this.label2, resources.GetString("label2.ToolTip"));
 			// 
 			// label1
 			// 
 			resources.ApplyResources(this.label1, "label1");
 			this.label1.Name = "label1";
-			this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
 			// 
 			// l_source_path
 			// 
 			resources.ApplyResources(this.l_source_path, "l_source_path");
 			this.l_source_path.ForeColor = System.Drawing.SystemColors.WindowFrame;
 			this.l_source_path.Name = "l_source_path";
-			this.toolTip1.SetToolTip(this.l_source_path, resources.GetString("l_source_path.ToolTip"));
 			// 
 			// l_dest_path
 			// 
 			resources.ApplyResources(this.l_dest_path, "l_dest_path");
 			this.l_dest_path.ForeColor = System.Drawing.SystemColors.WindowFrame;
 			this.l_dest_path.Name = "l_dest_path";
-			this.toolTip1.SetToolTip(this.l_dest_path, resources.GetString("l_dest_path.ToolTip"));
 			this.l_dest_path.Click += new System.EventHandler(this.l_dest_path_Click);
 			// 
 			// tableLayoutPanel2
@@ -151,25 +135,20 @@
 			this.tableLayoutPanel2.Controls.Add(this.btn_browse_source_file, 1, 0);
 			this.tableLayoutPanel2.Controls.Add(this.btn_browse_source_folder, 0, 0);
 			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.toolTip1.SetToolTip(this.tableLayoutPanel2, resources.GetString("tableLayoutPanel2.ToolTip"));
 			// 
-			// OFD_Source
+			// l_error
 			// 
-			resources.ApplyResources(this.OFD_Source, "OFD_Source");
-			// 
-			// SFD_Dest
-			// 
-			resources.ApplyResources(this.SFD_Dest, "SFD_Dest");
+			resources.ApplyResources(this.l_error, "l_error");
+			this.l_error.Name = "l_error";
 			// 
 			// MainForm
 			// 
-			resources.ApplyResources(this, "$this");
 			this.AllowDrop = true;
+			resources.ApplyResources(this, "$this");
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.Controls.Add(this.tableLayoutPanel1);
 			this.MaximizeBox = false;
 			this.Name = "MainForm";
-			this.toolTip1.SetToolTip(this, resources.GetString("$this.ToolTip"));
 			this.Load += new System.EventHandler(this.MainForm_Load);
 			this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
 			this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
@@ -201,6 +180,7 @@
 		private System.Windows.Forms.OpenFileDialog OFD_Source;
 		private System.Windows.Forms.SaveFileDialog SFD_Dest;
 		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.Label l_error;
 	}
 }
 

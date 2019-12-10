@@ -61,6 +61,16 @@ namespace EasySymbolLink.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t write symlink to output folder.
+        ///Insufficient rights for this directory..
+        /// </summary>
+        internal static string error_cant_write {
+            get {
+                return ResourceManager.GetString("error_cant_write", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Link name already exists!.
         /// </summary>
         internal static string lnk_already_exists {
